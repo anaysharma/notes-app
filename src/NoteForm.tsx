@@ -38,9 +38,11 @@ export function NoteForm({ onSubmit, onAddTag, availableTags }: NoteFormProps) {
               <Form.Control ref={titleRef} required />
             </Form.Group>
           </Col>
+
           <Col>
             <Form.Group controlId="tags">
               <Form.Label>Tags</Form.Label>
+
               <CreatableReactSelect
                 onCreateOption={(label) => {
                   const newTag = { id: uuidV4(), label };
@@ -51,7 +53,7 @@ export function NoteForm({ onSubmit, onAddTag, availableTags }: NoteFormProps) {
                   return { label: tag.label, value: tag.id };
                 })}
                 options={availableTags.map((tag) => {
-                  return { lable: tag.label, value: tag.id };
+                  return { label: tag.label, value: tag.id };
                 })}
                 onChange={(tags) => {
                   setSelectedTags(
