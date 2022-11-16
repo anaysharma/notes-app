@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react';
-import { Button, Col, Form, Row, Stack } from 'react-bootstrap';
+import { Badge, Button, Card, Col, Form, Row, Stack } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ReactSelect from 'react-select';
-import { Note, Tag } from './App';
+import { Tag } from './App';
+import styles from './NoteList.module.css';
 
 type simplifiedNote = {
   tags: Tag[];
@@ -12,7 +13,7 @@ type simplifiedNote = {
 
 type NoteListProp = {
   availableTags: Tag[];
-  notes: Note[];
+  notes: simplifiedNote[];
 };
 export function NoteList({ availableTags, notes }: NoteListProp) {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
@@ -95,5 +96,33 @@ export function NoteList({ availableTags, notes }: NoteListProp) {
 }
 
 function NoteCard({ id, title, tags }: simplifiedNote) {
-  return <h1>hi</h1>;
+  return (
+    <Card
+      as={Link}
+      to={`/${id}`}
+      className={`h-100 text-reset text-decoration-none ${styles.card}`}
+    >
+      <Card.Body>
+        <Stack
+          gap={2}
+          className="align-items-center justify-content-center h-100"
+        >
+          <span className="fs-5">{title}</span>
+          {tags.length > 0 && (
+            <Stack
+              gap={1}
+              direction="horizontal"
+              className="justify-content-center flex-wrap"
+            >
+              {tags.map((tag) => (
+                <Badge key={tag.id} className="text-truncate">
+                  {tag.label}
+                </Badge>
+              ))}
+            </Stack>
+          )}
+        </Stack>
+      </Card.Body>
+    </Card>
+  );
 }
