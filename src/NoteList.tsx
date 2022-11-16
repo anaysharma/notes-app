@@ -60,7 +60,7 @@ export function NoteList({
 
   return (
     <>
-      <Row className="align-items-center mb-4">
+      <Row className="align-items-center mb-2 p-2 border-primary rounded bg-primary bg-opacity-10">
         <Col>
           <h1>Notes</h1>
         </Col>
@@ -119,7 +119,7 @@ export function NoteList({
       </Form>
       <Row xs={1} sm={2} lg={3} xl={4} className="g-3">
         {filteredNotes.map((note) => (
-          <Col kyr={note.id}>
+          <Col key={note.id}>
             <NoteCard id={note.id} title={note.title} tags={note.tags} />
           </Col>
         ))}

@@ -1,6 +1,6 @@
 import { Badge, Button, Col, Row, Stack } from 'react-bootstrap';
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import { Link, useNavigate } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 import { useNote } from './NoteLayout';
 
 type NoteProps = {
@@ -13,13 +13,13 @@ export function Note({ onDelete }: NoteProps) {
 
   return (
     <>
-      <Row className="align-items-center mb-4">
-        <Col>
-          <h1>{note.title}</h1>
+      <Row className="align-items-center mb-4 p-2 border-primary rounded bg-primary bg-opacity-10">
+        <Col className="pb-2">
+          <h1 className="h-5">{note.title}</h1>
           {note.tags.length > 0 && (
             <Stack gap={1} direction="horizontal" className="flex-wrap">
               {note.tags.map((tag) => (
-                <Badge key={tag.id} className="text-truncate">
+                <Badge key={tag.id} className="text-truncate bg-secondary">
                   {tag.label}
                 </Badge>
               ))}
