@@ -1,26 +1,20 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import coy from 'react-syntax-highlighter/dist/esm/prism';
+import React from 'react';
+import { CodeProps } from 'react-markdown/lib/ast-to-react';
+import { atomOneLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import SyntaxHighlighter from 'react-syntax-highlighter';
 
-class CodeBlock extends PureComponent {
-  static propTypes = {
-    value: PropTypes.string.isRequired,
-    language: PropTypes.string,
-  };
-
-  static defaultProps = {
-    language: null,
-  };
-
-  render() {
-    const { language, value } = this.props;
-    return (
-      <SyntaxHighlighter language={language} style={coy}>
-        {value}
-      </SyntaxHighlighter>
-    );
-  }
-}
+const CodeBlock = ({ className, children, ...props }: CodeProps) => {
+  const match = /language-(\w+)/.exec(className || '');
+  return (
+    <SyntaxHighlighter
+      {...props}
+      style={atomOneLight}
+      PreTag="div"
+      language={match ? match[1] : 'language-shell'}
+    >
+      {String(children).replace(/\n$/, '')}
+    </SyntaxHighlighter>
+  );
+};
 
 export default CodeBlock;
