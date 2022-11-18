@@ -2,6 +2,8 @@ import { Badge, Button, Col, Row, Stack } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { useNote } from './NoteLayout';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { materialLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 type NoteProps = {
   onDelete: (id: string) => void;
@@ -46,7 +48,29 @@ export function Note({ onDelete }: NoteProps) {
           </Stack>
         </Col>
       </Row>
-      <ReactMarkdown>{note.markdown}</ReactMarkdown>
+      <ReactMarkdown
+        components={{
+          code({ node, inline, className, children, ...props }) {
+            const match = /language-(\w+)/.exec(className || '');
+
+            return !inline && match ? (
+              <SyntaxHighlighter
+                style={materialLight}
+                PreTag="div"
+                language={match[1]}
+                children={String(children).replace(/\n$/, '')}
+                {...props}
+              />
+            ) : (
+              <code className={className ? className : ''} {...props}>
+                {children}
+              </code>
+            );
+          },
+        }}
+      >
+        {note.markdown}
+      </ReactMarkdown>
     </>
   );
 }
