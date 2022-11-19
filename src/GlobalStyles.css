@@ -1,10 +1,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&display=swap');
 
-pre > div{
-  border-radius: 6px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+body {
+  background-color: #2b3339;
+  color: aliceblue;
+}
+
+pre > div {
+  border-radius: 20px;
+  padding: 20px !important;
 }
 
 code {
   font-family: "Fragment mono";
 }
+
+a.card {
+  background-color: #39444c;
+}
+
+div.css-b62m3t-container > *,
+input.form-control,
+input.form-control:focus {
+  background-color: #39444c;
+  border: 1px solid rgb(255, 255, 255, 0.4);
+  height: 40px;
+  border-radius: 20px;
+  color: aliceblue;
+}
+
+input.form-control:focus {
+  outline: 1px solid rgb(107, 183, 255);
+  outline-offset: none;
+}
+
+div.css-26l3qy-menu {
+  height: auto;
+  border: none;
+  overflow: hidden;
+}
+
+div.css-26l3qy-menu > * > * {
+  background-color: transparent;
+}
+
+div.css-26l3qy-menu > *:hover > *:hover {
+  background-color: #2b3339;
+}
+
+textarea.form-control,
+textarea.form-control:focus {
+  background-color: #39444c;
+  color: aliceblue;
+  border-radius: 20px;
+  border: none;
+}
+
+textarea.form-control:focus {
+  outline: 1px solid rgb(114, 175, 255);
+}
+
+div.modal-content {
+  background-color: #39444c;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+div.modal-header {
+  border: none;
+  background-color: #2b3339;
+}
+
+
+button.btn-outline-danger {
+  font-size: 15px;
+}
+
+button {
+  padding: 5px 20px !important;
+  height: 40px !important;
+  border-radius: 20px !important;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.3);
+}
+  button.btn-close {
+    background-color: rgba(217, 237, 255, 0.6);
+    opacity: 1;
+    padding: 0;
+    background-size: 10px;
+    border-radius: 15px !important;
+  }

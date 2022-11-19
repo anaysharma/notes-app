@@ -1,6 +1,6 @@
 import React from 'react';
 import { CodeProps } from 'react-markdown/lib/ast-to-react';
-import { atomOneLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 const CodeBlock = ({ className, children, ...props }: CodeProps) => {
@@ -8,7 +8,7 @@ const CodeBlock = ({ className, children, ...props }: CodeProps) => {
   return (
     <SyntaxHighlighter
       {...props}
-      style={atomOneLight}
+      style={atomOneDark}
       PreTag="div"
       language={match ? match[1] : 'language-shell'}
     >

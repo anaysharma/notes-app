@@ -14,7 +14,7 @@ export function Note({ onDelete }: NoteProps) {
 
   return (
     <>
-      <Row className="align-items-center mb-4 p-2 border-primary rounded bg-primary bg-opacity-10">
+      <Row className="align-items-center mb-4">
         <Col className="pb-2">
           <h1 className="h-5">{note.title}</h1>
           {note.tags.length > 0 && (
@@ -42,7 +42,7 @@ export function Note({ onDelete }: NoteProps) {
               Delete
             </Button>
             <Link to="/">
-              <Button variant="outline-secondary">Back</Button>
+              <Button variant="secondary">Back</Button>
             </Link>
           </Stack>
         </Col>

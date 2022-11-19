@@ -87,7 +87,7 @@ export function NoteForm({
         <Stack direction="horizontal" gap={2} className="justify-content-end">
           <Button type="submit">Save</Button>
           <Link to="..">
-            <Button type="button" variant="outline-secondary">
+            <Button type="button" variant="secondary">
               Cancel
             </Button>
           </Link>

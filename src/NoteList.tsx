@@ -60,7 +60,7 @@ export function NoteList({
 
   return (
     <>
-      <Row className="align-items-center mb-2 p-2 border-primary rounded bg-primary bg-opacity-10">
+      <Row className="align-items-center mb-2">
         <Col>
           <h1>Notes</h1>
         </Col>
@@ -70,7 +70,7 @@ export function NoteList({
               <Button variant="primary">Create</Button>
             </Link>
             <Button
-              variant="outline-secondary"
+              variant="secondary"
               onClick={() => {
                 setEditTagsModalIsOpen(true);
               }}
