@@ -9,4 +9,5 @@
 .card:focus {
   background-color: #414e58;
   box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+  translate: 0 -5px;
 }

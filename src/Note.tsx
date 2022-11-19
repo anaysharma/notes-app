@@ -20,7 +20,7 @@ export function Note({ onDelete }: NoteProps) {
           {note.tags.length > 0 && (
             <Stack gap={1} direction="horizontal" className="flex-wrap">
               {note.tags.map((tag) => (
-                <Badge key={tag.id} className="text-truncate bg-secondary">
+                <Badge key={tag.id} className="text-truncate">
                   {tag.label}
                 </Badge>
               ))}
@@ -30,7 +30,7 @@ export function Note({ onDelete }: NoteProps) {
         <Col xs="auto">
           <Stack gap={2} direction="horizontal">
             <Link to={`/${note.id}/edit`}>
-              <Button variant="primary">Edit</Button>
+              <Button variant="info">Edit</Button>
             </Link>
             <Button
               variant="outline-danger"
